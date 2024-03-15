@@ -3,10 +3,11 @@
 neste readme estará todo o passo a passo de como eu fiz a API usando o djangorestframework
 
 **Sumario de etapas**:
-1. inicializando o backend
-2. Criando os modelos e aplicações do projeto
-    2.1 - Criando a aplicação
-    2.2 - Criando os modelos
+- [1 - inicializando o backend](#1---inicializando-o-backend)
+- [2 - Criando os modelos e aplicações do projeto](#2---Criando-os-modelos-e-aplicações-do-projeto)
+    - [2.1 - Criando a aplicação](#2.1---Criando-a-aplicação)
+    - [2.2 - Criando os modelos](#2.2---Criando-os-modelos)
+- [3 - Criando os Serializers](#3---Criando-os-Serializers)
 
 ## 1 - inicializando o backend
 
@@ -131,11 +132,11 @@ de acordo com a modelagem feita, temos que criar 3 modelos para a nossa aplicaç
 
 - relacionamento de `Treino` --> `Tipo`:
 
->>> Treino pode possuir apenas um tipo e um tipo pode esta em apenas um Treino. portanto a cardinalidade é de `1:1`
+> Treino pode possuir apenas um tipo e um tipo pode esta em apenas um Treino. portanto a cardinalidade é de `1:1`
 
 - relacionamento de `Tipo` --> `Etapa`:
 
->>> Tipo pode possuir várias etapas mas etapas só pode ter um tipo associado. portanto a cardinalidade é de `1:N`
+>  Tipo pode possuir várias etapas mas etapas só pode ter um tipo associado. portanto a cardinalidade é de `1:N`
 
 podemos agora partir para a criação defenitiva dos modelos em django. no arquivo `models.py` na aplicação `treino` criaremos os 3 modelos:
 
