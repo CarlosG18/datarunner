@@ -5,8 +5,8 @@ neste readme estará todo o passo a passo de como eu fiz a API usando o djangore
 **Sumario de etapas**:
 - [1 - inicializando o backend](#1---inicializando-o-backend)
 - [2 - Criando os modelos e aplicações do projeto](#2---Criando-os-modelos-e-aplicações-do-projeto)
-    - [2.1 - Criando a aplicação](#2.1---Criando-a-aplicação)
-    - [2.2 - Criando os modelos](#2.2---Criando-os-modelos)
+    - [2.1 - Criando a aplicação](##2.1---Criando-a-aplicação)
+    - [2.2 - Criando os modelos](##2.2---Criando-os-modelos)
 - [3 - Criando os Serializers](#3---Criando-os-Serializers)
 - [4 - Criando nossas Views](#4---Criando-nossas-Views)
 
@@ -19,7 +19,7 @@ $ python3 -m venv venv
 $ source ./venv/bin/activate
 ```
 
-agora precisamos instalar o django e o djangorestframewok:
+agora precisamos instalar o django e o djangorestframework:
 
 ```bash
 $ pip install django
@@ -32,7 +32,7 @@ criaremos um projeto em **django** chamado `backend`:
 $ django-admin startproject backend
 ```
 
-no arquivo de configurações `settings.py` do diretorio backend coloremos:
+no arquivo de configurações `settings.py` do diretorio backend colocaremos:
 
 ```python
     INSTALLED_APPS = [
@@ -171,7 +171,7 @@ $ python3 manage.py migrate
 
 Durante o desenvolvimento da API com Django Rest Framework, é necessário criar serializers para os modelos criados. Os serializers são classes responsáveis por converter instâncias dos modelos do Python/Django em dados serializados, como JSON, adequados para o tráfego pela internet. Além disso, os serializers também realizam o processo inverso, convertendo os dados serializados de volta em instâncias de modelos do Django. Eles desempenham um papel fundamental na comunicação entre a API e os clientes, garantindo que os dados sejam transmitidos de forma adequada e que sejam válidos, passando por processos de validação antes de serem salvos no banco de dados.
 
-agora devemos criar um novo arquivo chamado `serializers.py` no diretorio da sua aplicação, no nosso caso na aplicação `treino`, e nele criar serializers para os tres modelos usando o `ModelSerializer`:
+agora devemos criar um novo arquivo chamado `serializers.py` no diretorio da sua aplicação, no nosso caso na aplicação `treino`, e nele criar serializers para os dois modelos usando o `ModelSerializer`:
 
 ```python
 from rest_framework import serializers
