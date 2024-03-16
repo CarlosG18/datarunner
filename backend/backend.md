@@ -5,8 +5,8 @@ neste readme estará todo o passo a passo de como eu fiz a API usando o djangore
 **Sumario de etapas**:
 - [1 - inicializando o backend](#1---inicializando-o-backend)
 - [2 - Criando os modelos e aplicações do projeto](#2---Criando-os-modelos-e-aplicações-do-projeto)
-    - [2.1 - Criando a aplicação](##2.1---Criando-a-aplicação)
-    - [2.2 - Criando os modelos](##2.2---Criando-os-modelos)
+    - [2.1 - Criando a aplicação](#2-1---Criando-a-aplicação)
+    - [2.2 - Criando os modelos](#2-2---Criando-os-modelos)
 - [3 - Criando os Serializers](#3---Criando-os-Serializers)
 - [4 - Criando nossas Views](#4---Criando-nossas-Views)
 
@@ -83,7 +83,7 @@ flowchart LR
     relacionamento1 --- Etapa
 ```
 
-### 2.1 - Criando a aplicação
+### 2-1 - Criando a aplicação
 
 com isso definido criamos o app `treino`:
 
@@ -121,7 +121,7 @@ urlpatterns = [
 ]
 ```
 
-### 2.2 - Criando os modelos
+### 2-2 - Criando os modelos
 
 de acordo com a modelagem feita, temos que criar 2 modelos para a nossa aplicação. mas antes disso vale a pena mencionar a cardinalidade de cada entidade em seus relacionamentos, ao qual não esta identificado na imagem da modelagem.
 
