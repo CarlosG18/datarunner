@@ -5,10 +5,18 @@ from rest_framework.response import Response
 from rest_framework import status
 import re
 
+def get_seconds(tempo):
+    temp = tempo.split(":")
+    return float(temp[0])*60 + float(temp[1])
+
 def get_tempos(dados):
     dados_tempos = []
     tipo_treino = Tipo.objects.get(id=dados["tipo"])
     data = re.findall(r'\d{2}:\d{2}\.\d{2}', dados["tempos"])
+    for index, tempo in enumerate(data):
+        data[index] = get_seconds(tempo)
+
+    print(data)
     data_tempo = []
     for i in range(0,len(data)-1,2):
         data_tempo.append([
