@@ -127,3 +127,40 @@ def create_tipo(request):
         return Response(response, status=status.HTTP_201_CREATED)
     else:
         return Response(data_serial.errors, status=status.HTTP_400_BAD_REQUEST)
+
+#view para retornar as etapas de um determinado treino
+@api_view(['GET'])
+def get_treino(request, id):
+    treino = Treino.objects.get(id=id)
+    tipo = Tipo.objects.get(id=treino.tipo.id)
+    etapas = Etapa.objects.filter(treino=treino)
+    treino_serial = TreinoSerializer(treino)
+    tipo_serial = TipoSerializer(tipo)
+    etapas_serial = EtapaSerializer(etapas,many=True)
+    treino_data = {
+        "treino": treino_serial.data,
+        "tipo": tipo_serial.data,
+        "etapas": etapas_serial.data
+    }
+    return Response(treino_data, status=status.HTTP_200_OK)
+
+def get_etapas_from_treino(treino):
+    etapas = Etapa.objects.filter(treino=treino)
+    etapas_serial = EtapaSerializer(etapas,many=True)
+    return etapas_serial.data
+
+@api_view(['GET'])
+def get_treino_tipo(request,id_tipo):
+    data = []
+    tipo = Tipo.objects.get(id=id_tipo)
+    treinos = Treino.objects.filter(tipo=tipo)
+    for treino in treinos:
+        treino_serial = TreinoSerializer(treino)
+        data_treino = {
+            "treino": treino_serial.data,
+            "etapas": get_etapas_from_treino(treino)
+        }
+        data.append(data_treino)
+        
+    return Response(data, status=status.HTTP_200_OK)
+

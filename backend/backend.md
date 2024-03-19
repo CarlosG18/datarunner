@@ -10,6 +10,7 @@ neste readme estará todo o passo a passo de como eu fiz a API usando o djangore
 - [3 - Criando os Serializers](#3---Criando-os-Serializers)
 - [4 - Criando nossas Views](#4---Criando-nossas-Views)
     - [4.1 - Analisando a view create_treino](#4-1---Analisando-a-view-create_treino)
+- [5 - Realizando o Deploy](#5---Realizando-o-Deploy)
 
 ## 1 - inicializando o backend
 
@@ -353,3 +354,25 @@ def get_tempos(dados):
 
     return dados_tempos
 ```
+
+o que a função `get_tempos()` faz em resumo, é preparar um dicionario com os dados "formatados" para que ao voltar a view `create_treino()` fique mais simples criar as etapas do treino, que neste caso é criado "manualmente". com isso nos conseguimos salvar os treinos e suas etapas associadas.
+
+algumas outras views foram criadas. e o arquivo `urls.py` da nossa aplicação `treino` que antes estava vazio agora possui essa cara:
+
+```python
+from django.urls import path
+from . import views
+
+urlpatterns = [
+   path('list_treinos/', views.list_treinos),
+   path('create_treino/', views.create_treino),
+   path('create_tipo/', views.create_tipo),
+   path('get_tipos/', views.get_tipos),
+   path('get_etapas/', views.get_etapas),
+   path('get_treino/<int:id>/', views.get_treino),
+   path('get_treino_tipo/<int:id_tipo>/', views.get_treino_tipo),
+]
+```
+
+## 5 - Realizando o Deploy
+

@@ -7,4 +7,6 @@ urlpatterns = [
    path('create_tipo/', views.create_tipo),
    path('get_tipos/', views.get_tipos),
    path('get_etapas/', views.get_etapas),
+   path('get_treino/<int:id>/', views.get_treino),
+   path('get_treino_tipo/<int:id_tipo>/', views.get_treino_tipo),
 ]
