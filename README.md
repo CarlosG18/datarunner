@@ -2,12 +2,10 @@
 
 > sistema web para injetar dados sobre meus treinos de corrida.
 
-- **Tecnologias usadas**:
-![streamlit](https://img.shields.io/badge/stremlit-gray?style=for-the-badge&logo=streamlit)
-<br>
-![django](https://img.shields.io/badge/djangorestframework-228B22?style=for-the-badge&logo=django)
-<br>
-![python-logo](https://img.shields.io/badge/python-grey?style=for-the-badge&logo=python&logoColor=white)
+**Tecnologias usadas**:
+- ![streamlit](https://img.shields.io/badge/stremlit-gray?style=for-the-badge&logo=streamlit)
+- ![django](https://img.shields.io/badge/djangorestframework-228B22?style=for-the-badge&logo=django)
+- ![python-logo](https://img.shields.io/badge/python-grey?style=for-the-badge&logo=python&logoColor=white)
 
 ## 🤔 Problemática
 
