@@ -1,10 +1,10 @@
 # Backend 
 
-neste readme estará todo o passo a passo de como eu fiz a API usando o djangorestframework
+neste readme estará todo o passo a passo de como eu fiz a API usando o **djangorestframework**
 
 **Sumario de etapas**:
 - [1 - inicializando o backend](#1---inicializando-o-backend)
-- [2 - Criando os modelos e aplicações do projeto](#2---Criando-os-modelos-e-aplicações-do-projeto)
+- [2 - Criando os modelos e aplicações do projeto️](#2---Criando-os-modelos-e-aplicações-do-projeto)
     - [2.1 - Criando a aplicação](#2-1---Criando-a-aplicação)
     - [2.2 - Criando os modelos](#2-2---Criando-os-modelos)
 - [3 - Criando os Serializers](#3---Criando-os-Serializers)
