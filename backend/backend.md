@@ -423,14 +423,16 @@ $ pip install -r requirements.txt
 
 5. agora vá até a aba **web** do pythonanywhere.com e crie um novo app, no momento em que você for criar um novo app, escolha a opção **manual configuration** e escolha a versão do python compativel com a que você usou no seu projeto.
 
-6. ainda na aba **web**, vá até a seção **code** e adicione o diretorio onde esta o seu projeto django. se estiver com duvidas onde está o seu projeto, basta ir para a aba **files** e navegar entre os diretorios até encontrar o seu projeto.
+6. ainda na aba **web**, vá até a seção **code** e adicione o caminho pra o diretorio onde está o seu projeto django. se estiver com duvidas onde está o seu projeto, basta ir para a aba **files** e navegar entre os diretorios até encontrar o seu projeto.
 
-**obs**: lembre-se que você deve colocar o diretório em que contém o arquivo `manage.py`
+**obs**: lembre-se que você deve colocar o caminho diretório em que contém o arquivo `manage.py`
 
-7. ainda na aba **web**, na seção **Virtualenv** você deverá colocar o diretorio `env` que você criou no tópico 3.
+7. Na mesma seção **code** clique no link do **WSGI configuration file**, deixe apenas a parte que trata do django e apague o resto. na variável path, você deve colocar o mesmo caminho que você colocou no tópico anterior (6). mude também isso: **os.environ['DJANGO_SETTINGS_MODULE'] = '<nome_do_Seu_projeto>.settings'**
 
-8. Continuando na aba **web**, vá até a seção **Static files** e adicione `/static/` na **URL** e na parte do **DIRECTORY** informe a pasta chamada `static` que foi gerada ao rodar o comando `collectstatic`.
+8. ainda na aba **web**, na seção **Virtualenv** você deverá colocar o diretorio `env` que você criou no tópico 3.
 
-9. Após todas essas configurações, retorne ao topo da aba **web** e faça um **reload**.
+9. Continuando na aba **web**, vá até a seção **Static files** e adicione `/static/` na **URL** e na parte do **DIRECTORY** informe a pasta chamada `static` que foi gerada ao rodar o comando `collectstatic`.
+
+10. Após todas essas configurações, retorne ao topo da aba **web** e faça um **reload**.
 
 Após essas etapas, acredito que sua API deverá esta rodando na url **nome_user.pythonanywhere.com**.
