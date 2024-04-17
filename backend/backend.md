@@ -376,3 +376,61 @@ urlpatterns = [
 
 ## 5 - Realizando o Deploy
 
+Antes de seguirmos para as configurações no **pythonanywhere.com**, precisamos realizar algumas alterações no arquivo `settings.py` do nosso projeto:
+
+```python
+DEBUG = False
+
+ALLOWED_HOSTS = ['<nome_do_seu_user>.pythonanywhere.com']
+...
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+```
+
+e rodamos os seguintes comandos:
+
+```bash
+$ python3 manage.py collectstatic
+$ pip freeze > requirements.txt
+```
+
+O deploy da API foi feito no **pythonanywhere.com** e foram seguidos os seguintes passos:
+
+1. No dashboard do pythonanywhere.com criamos um novo console bash;
+2. No console clonamos o repositorio:
+
+```bash
+$ git clone <url_repo>
+```
+
+3. criamos um ambiente virtual e ativamos:
+
+```bash
+$ python -m venv venv
+$ source ./venv/bin/activate
+```
+
+4. instalamos o django e as dependências:
+
+```bash
+$ pip install django
+```
+
+vá até o diretório onde esta o arquivo `requirements.txt` e execute esse código:
+
+```bash
+$ pip install -r requirements.txt
+```
+
+5. agora vá até a aba **web** do pythonanywhere.com e crie um novo app, no momento em que você for criar um novo app, escolha a opção **manual configuration** e escolha a versão do python compativel com a que você usou no seu projeto.
+
+6. ainda na aba **web**, vá até a seção **code** e adicione o diretorio onde esta o seu projeto django. se estiver com duvidas onde está o seu projeto, basta ir para a aba **files** e navegar entre os diretorios até encontrar o seu projeto.
+
+**obs**: lembre-se que você deve colocar o diretório em que contém o arquivo `manage.py`
+
+7. ainda na aba **web**, na seção **Virtualenv** você deverá colocar o diretorio `env` que você criou no tópico 3.
+
+8. Continuando na aba **web**, vá até a seção **Static files** e adicione `/static/` na **URL** e na parte do **DIRECTORY** informe a pasta chamada `static` que foi gerada ao rodar o comando `collectstatic`.
+
+9. Após todas essas configurações, retorne ao topo da aba **web** e faça um **reload**.
+
+Após essas etapas, acredito que sua API deverá esta rodando na url **nome_user.pythonanywhere.com**.
