@@ -1,6 +1,16 @@
 import streamlit as st
 import requests as re
 
+style = """
+h1{
+    color: blue;
+}
+"""
+
+html = f'<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title><style>{style}</style></head><body><h1>teste</h1></body></html>'
+
+
+
 response = re.get("http://carlosg18.pythonanywhere.com/treino/list_treinos/")
 
 response_tipos = re.get("http://carlosg18.pythonanywhere.com/treino/get_tipos/")
@@ -55,12 +65,18 @@ if tela == 0:
     }
     
     if button_send:
-        st.write("butao enviar apertado")
-        st.write(dict_create_treino)
         request = re.post("http://carlosg18.pythonanywhere.com/treino/create_treino/", data=dict_create_treino)
-        st.write(request.json())
+        if request.status_code == 201:
+            st.success("tipo de treino criado com sucesso!", icon="✅")
+        else:
+            st.write(request.data)
+            st.error("Não foi possivel criar o novo tipo de treino!", icon="🚨")
+
 elif tela == 1:
-    st.write(response.json()["dados"])
+    container = st.container()
+    for data in response.json()["dados"]:
+        container.write(data["titulo"])
+    st.html(html)
 else:
     modos_tipo = [
         "intervalado",
@@ -81,9 +97,11 @@ else:
 
     button_send = st.button("enviar")
     if button_send:
-        st.write(dict_create_tipo)
         request = re.post("http://carlosg18.pythonanywhere.com/treino/create_tipo/", data=dict_create_tipo)
-        st.write(request.json())
+        if request.status_code == 201:
+            st.success("tipo de treino criado com sucesso!", icon="✅")
+        else:
+            st.error("Não foi possivel criar o novo tipo de treino!", icon="🚨")
 
 
 
